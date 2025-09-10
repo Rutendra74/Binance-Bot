@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Binance Trading Bot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Binance Trading Bot</h1>
+
+    <div class="card mx-auto" style="max-width: 600px;">
+        <div class="card-header text-center">
+            Place Order
+        </div>
+        <div class="card-body">
+            <form action="{{ url_for('place_order') }}" method="post">
+                <div class="mb-3">
+                    <label for="symbol" class="form-label">Symbol</label>
+                    <input type="text" class="form-control" name="symbol" id="symbol" placeholder="e.g. BTCUSDT" required>
+                </div>
+                <div class="mb-3">
+                    <label for="side" class="form-label">Side</label>
+                    <select class="form-select" name="side" id="side">
+                        <option value="BUY">BUY</option>
+                        <option value="SELL">SELL</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="type" class="form-label">Order Type</label>
+                    <select class="form-select" name="type" id="type">
+                        <option value="MARKET">MARKET</option>
+                        <option value="LIMIT">LIMIT</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="quantity" class="form-label">Quantity</label>
+                    <input type="number" step="any" class="form-control" name="quantity" id="quantity" placeholder="e.g. 0.01" required>
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price (for LIMIT orders)</label>
+                    <input type="number" step="any" class="form-control" name="price" id="price" placeholder="Optional">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Place Order</button>
+            </form>
+
+           
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
